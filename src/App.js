@@ -2,100 +2,106 @@
 
 import React, { Component } from 'react';
 import { Route , withRouter } from 'react-router-dom';
+import PrivateRoute from './components/common/PrivateRoute'
 import Index from "./pages/index";
 import AuthIndex from './pages/Auth'
+import { connect } from 'react-redux';
+
+import * as actions from './store/Actions/index';
 
 class App extends Component {
   render() {
+    if (localStorage.jwtToken) {
+        this.props.setCurrentUser(JSON.parse(localStorage.jwtToken));
+    }
     return (
       <React.Fragment>
-        
         <Route 
             exact
             path={'/register'}
             component={AuthIndex} 
         />
-        <Route 
+        <Route
             exact
             path={'/login'}
             component={AuthIndex} 
         />
-        <Route 
+        <PrivateRoute
             exact
             path={'/dashboard'}
             component={Index} 
         />
-        <Route 
+        <PrivateRoute
             exact
             path={'/'}
             component={Index} 
         />
-        <Route 
+        <PrivateRoute
             exact
             path={'/user-profile'}
             component={Index} 
         />
-        <Route 
+        <PrivateRoute
             exact
             path={'/add-money-1'}
             component={Index} 
         />
-        <Route 
+        <PrivateRoute
             exact
             path={'/add-money-2'}
             component={Index} 
         />
-        <Route 
+        <PrivateRoute
             exact
             path={'/add-bank'}
             component={Index} 
         />
-        <Route 
+        <PrivateRoute
             exact
             path={'/add-card'}
             component={Index} 
         />
-        <Route 
+        <PrivateRoute
             exact
             path={'/confirm-details'}
             component={Index} 
         />
-        <Route 
+        <PrivateRoute
             exact
             path={'/exchange'}
             component={Index} 
         />
-        <Route 
+        <PrivateRoute
             exact
             path={'/recent-transaction'}
             component={Index} 
         />
-        <Route 
+        <PrivateRoute
             exact
             path={'/transaction-details'}
             component={Index} 
         />
-        <Route 
+        <PrivateRoute
             exact
             path={'/withdraw'}
             component={Index} 
         />
-        <Route 
+        <PrivateRoute
             exact
             path={'/transfer'}
             component={Index} 
         />
-        <Route 
+        <PrivateRoute
             exact
             path={'/add-xp-wallet'}
             component={Index} 
         />
-        <Route 
+        <PrivateRoute
             exact
             path={'/recharge-bank'}
             component={Index} 
         />
-        <Route 
+        <PrivateRoute
             exact
             path={'/recharge-card'}
             component={Index} 
@@ -104,4 +110,10 @@ class App extends Component {
     )
   }
 }
-export default withRouter(App);
+const mapDispatchToProps = (dispatch) => {
+	return {
+		setCurrentUser: (user) => dispatch(actions.setCurrentUser(user)),
+	};
+};
+
+export default withRouter(connect(null, mapDispatchToProps)(App));

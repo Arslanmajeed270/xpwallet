@@ -1,8 +1,59 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 
+import { connect } from 'react-redux';
+import * as actions from '../../store/Actions/index';
+
 class index extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            listOfTransactionHistory: [],
+          user:{}
+        };
+      }
+      static getDerivedStateFromProps(props, state) {
+        let authReducer = props.authReducer
+        let walletReducer = props.walletReducer
+    
+        let stateChanged = false;
+        let changedState = {};
+    
+        if (
+          authReducer &&
+          JSON.stringify(state.user) !== JSON.stringify(authReducer.user)
+        ) {
+          changedState.user = authReducer.user;
+          stateChanged = true;
+        }
+        if (
+            walletReducer &&
+            JSON.stringify(state.listOfTransactionHistory) !== JSON.stringify(walletReducer.listOfTransactionHistory)
+          ) {
+            changedState.listOfTransactionHistory = walletReducer.listOfTransactionHistory;
+            stateChanged = true;
+          }
+    
+        if (stateChanged) {
+          return changedState;
+        }
+        return null;
+      }
+      componentDidMount () {
+          const { user } = this.state;
+
+        const data ={
+              customerId:user.userId,
+              channel:"xpwallet",
+              requestPlatform:"web"
+            }
+          this.props.onGetTransactionHistory(data)
+      }
+
     render() {
+        const { user , listOfTransactionHistory } = this.state
+        console.log('this.state',this.state)
         return (
             <React.Fragment>
                 <div id="content">
@@ -311,4 +362,18 @@ class index extends Component {
         )
     }
 }
-export default index;
+const mapStateToProps = (state) => {
+    return {
+      authReducer: state.authReducer,
+      walletReducer : state.walletReducer
+    };
+  };
+  
+  const mapDispatchToProps = (dispatch) => {
+    return {
+        onGetTransactionHistory: (data) => dispatch(actions.getTransactionHistory(data)),
+    };
+  };
+  
+  export default connect(mapStateToProps, mapDispatchToProps)(index);
+  

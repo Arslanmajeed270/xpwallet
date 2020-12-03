@@ -1,18 +1,18 @@
 import axios from 'axios';
-// import setAuthToken from '../../utils/setAuthToken';
+import setAuthToken from '../../utils/setAuthToken';
 
 import {
     CREATE_USER_SUCCESS,
     CREATE_USER_FAIL,
     SET_ERRORS,
-    SET_CURRENT_USER,
+	SET_CURRENT_USER,
+	CLEAR_CURRENT_USER,
     LOGIN_USER
 } from './actionTypes';
 
 // import { setPageLoading, clearPageLoading, clearErrors } from './pageActions';
 
 const backendServerURL = process.env.REACT_APP_API_URL;
-const backendServerURL_Request = process.env.REACT_APP_API_URL_REQUEST_URL;
 
 
 // Set logged in user (Verified)
@@ -23,17 +23,30 @@ export const setCurrentUser = (decoded) => {
 	};
 };
 
+export const clearCurrentUser = () => {
+	return {
+		type: CLEAR_CURRENT_USER,
+	};
+};
+
+// Log user out (Verified)
+export const logoutUser = (history) => (dispatch) => {
+	localStorage.removeItem('jwtToken');
+	setAuthToken(false);
+	dispatch(clearCurrentUser());
+	history.push(`/login`);
+};
+
 
 // Register - Register a new User
 export const registerUser = (userData) => (dispatch) => {
 	// dispatch(setPageLoading());
 
 	axios
-		.post(backendServerURL,{
-			url: backendServerURL_Request+`/registerUser`,
-			requestpacket: userData
-		})
+		.post(backendServerURL+`/registerUser`, userData
+		)
 		.then((res) => {
+			console.log("res for registeration", res)
             if (res && res.data && res.data.resultCode === '200') {
                 dispatch({ type: CREATE_USER_SUCCESS });
             }
@@ -57,10 +70,11 @@ export const loginUser = (userData, history) => (dispatch) => {
 	axios
 		.post(backendServerURL + '/authenticateUser', userData)
 		.then((res) => {
-            if (res.data && res.data.data && res.data.data.user) {
-				localStorage.setItem('jwtToken', JSON.stringify(res.data.data.user));
-				dispatch(setCurrentUser(res.data.data.user));
-				history.push(`/index-Canada&Ontario&Toronto`);
+			console.log("res for login", res)
+            if (res && res.data && res.data.responseData && res.data.responseData.user) {
+				localStorage.setItem('jwtToken', JSON.stringify(res.data.responseData.user));
+				dispatch(setCurrentUser(res.data.responseData.user));
+				history.push(`/`);
 			} else {
 				dispatch({
 					type: SET_ERRORS,

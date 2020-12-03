@@ -1,5 +1,7 @@
 import React from 'react';
 import {BrowserRouter as Router , Route,  withRouter} from 'react-router-dom';
+import PrivateRoute from '../components/common/PrivateRoute'
+
 import Index from './Dashboard';
 import UserProfile from './Dashboard/userProfile';
 import Exchange from './Exchange/exchange';
@@ -24,82 +26,82 @@ class Routes extends React.Component {
 		console.log("checking props: ", this.props);
 		return (
 			<Router>
-				<Route  
+				<PrivateRoute 
 					exact 
 					path={"/dashboard"} 
 					component={Index}
 				/>
-				<Route  
+				<PrivateRoute 
 					exact 
 					path={"/"} 
 					component={Index}
 				/>
-				<Route  
+				<PrivateRoute 
 					exact 
 					path={"/user-profile"} 
 					component={UserProfile}
 				/>
-				<Route  
+				<PrivateRoute 
 					exact 
 					path={"/add-money-1"} 
 					component={AddMoney1}
 				/>
-				<Route  
+				<PrivateRoute 
 					exact 
 					path={"/add-money-2"} 
 					component={AddMoney2}
 				/>
-				<Route  
+				<PrivateRoute 
 					exact 
 					path={"/add-bank"} 
 					component={AddBank}
 				/>
-				<Route  
+				<PrivateRoute 
 					exact 
 					path={"/add-card"} 
 					component={AddCard}
 				/>
-				<Route  
+				<PrivateRoute 
 					exact 
 					path={"/confirm-details"} 
 					component={ConfirmDetails}
 				/>
-				<Route  
+				<PrivateRoute 
 					exact 
 					path={"/exchange"} 
 					component={Exchange}
 				/>
-				<Route
+				<PrivateRoute
 					exact 
 					path={"/recent-transaction"} 
 					component={RecentTransaction}
 				/>
-				<Route
+				<PrivateRoute
 					exact 
 					path={"/transaction-details"} 
 					component={TransactionDetails}
 				/>
-				<Route
+				<PrivateRoute
 					exact 
 					path={"/withdraw"} 
 					component={Withdraw}
 				/>
-				<Route
+				<PrivateRoute
 					exact 
 					path={"/transfer"} 
 					component={Transfer}
 				/>
-				<Route
+				<PrivateRoute
 					exact 
 					path={"/add-xp-wallet"} 
 					component={AddXpWallet}
 				/>
-				<Route
+				<PrivateRoute
 					exact 
 					path={"/recharge-bank"} 
 					component={RechargeBank}
 				/>
-				<Route
+				<PrivateRoute
 					exact 
 					path={"/recharge-card"} 
 					component={RechargeCard}

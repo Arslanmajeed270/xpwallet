@@ -1,13 +1,15 @@
 import {
     CREATE_USER_FAIL,
     CREATE_USER_SUCCESS,
-    SET_CURRENT_USER
+	SET_CURRENT_USER,
+	CLEAR_CURRENT_USER
 	
 } from '../Actions/actionTypes';
 
 const initialState = {
     registerUser: false,
-    isAuthenticated:false,
+	isAuthenticated:false,
+	user:{}
 };
 
 export default function (state = initialState, action) {
@@ -17,6 +19,12 @@ export default function (state = initialState, action) {
 				...state,
 				isAuthenticated: true,
 				user: action.payload,
+			};
+		case CLEAR_CURRENT_USER:
+			return {
+				...state,
+				isAuthenticated: false,
+				user: {},
 			};
 		case CREATE_USER_SUCCESS:
 			return {

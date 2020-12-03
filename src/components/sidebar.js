@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 
+import { connect } from 'react-redux';
+import * as actions from '../store/Actions/index';
+
 class sidebar extends Component {
     render() {
         return (
@@ -41,7 +44,11 @@ class sidebar extends Component {
                         <Link to="#">Notification</Link>
                         </li>
                         <li>
-                        <Link to="#">Logout</Link>
+                        <Link to="#" 
+                            onClick={() =>
+                                this.props.onLogout(this.props.history)
+                            }
+                        >Logout</Link>
                         </li>
                     </ul>
                 </nav>
@@ -50,4 +57,10 @@ class sidebar extends Component {
         )
     }
 }
-export default sidebar;
+const mapDispatchToProps = (dispatch) => {
+	return {
+		onLogout: (history) => dispatch(actions.logoutUser(history)),
+	};
+};
+
+export default connect(null, mapDispatchToProps)(sidebar);
