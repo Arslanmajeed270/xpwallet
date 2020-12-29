@@ -13,14 +13,14 @@ const backendServerURL = process.env.REACT_APP_API_URL;
 // getUserData - getUserData a new User
 export const getUserData = (userData) => (dispatch) => {
 	// dispatch(setPageLoading());
-
+	console.log('checking userData: ', userData);
 	axios
 		.post(backendServerURL+`/getCustomer`,userData)
 		.then((res) => {
+			console.log('res on Login User', res)
             if (res && res.data && res.data.resultCode === '00') {
                 dispatch({ type: GET_USER_DETAILS });
             }
-            console.log('res on Login User', res)
 		})
 		.catch((err) => {
 			dispatch({

@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter as Router , Route,  withRouter} from 'react-router-dom';
+import {Route} from 'react-router-dom';
 import Register from './register/index'
 import Login from './login'
 
@@ -7,9 +7,8 @@ import Login from './login'
 class Routes extends React.Component {
 
 	render(){
-		console.log("checking props: ", this.props);
 		return (
-			<Router>
+			<React.Fragment>
 				<Route  
 					exact 
 					path={"/register"} 
@@ -20,9 +19,9 @@ class Routes extends React.Component {
 					path={"/login"} 
 					component={Login}
 				/>
-			</Router>
+			</React.Fragment>
 		);
 	}
 }
 
-export default withRouter(Routes);
+export default Routes;
