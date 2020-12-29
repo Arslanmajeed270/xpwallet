@@ -7,17 +7,22 @@ import {
 
 const initialState = {
     registerUser: false,
-    isAuthenticated:false,
+	isAuthenticated:false,
+	user:{}
 };
 
 export default function (state = initialState, action) {
 	switch (action.type) {
         case SET_CURRENT_USER:
-			return {
-				...state,
-				isAuthenticated: true,
-				user: action.payload,
-			};
+			{
+				console.log('actionpayload', action.payload)
+				return {
+					...state,
+					isAuthenticated: true,
+					user: action.payload,
+				};
+			}
+			
 		case CREATE_USER_SUCCESS:
 			return {
 				...state,

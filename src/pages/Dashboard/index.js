@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
 
 import { connect } from 'react-redux';
 import * as actions from '../../store/Actions';
@@ -8,12 +7,43 @@ class index extends Component {
     constructor(props) {
 		super(props);
 		this.state = {
-            getUserDetails:{}
+            getUserDetails:{},
+            userData:{},
+            user:{}
 		};
     }
 
-    componentDidMount(){
 
+    static getDerivedStateFromProps(props, state) {
+		const page = props.page;
+        const auth = props.auth;
+        console.log('auth reducer', auth)
+		let stateChanged = false;
+		let changedState = {};
+
+		if (
+			page &&
+			JSON.stringify(state.userData) !== JSON.stringify(page.userData)
+		) {
+			changedState.userData = page.userData;
+			stateChanged = true;
+        }
+        if (
+			auth &&
+			JSON.stringify(state.user) !== JSON.stringify(auth.user)
+		) {
+			changedState.user = auth.user;
+			stateChanged = true;
+		}
+
+		if (stateChanged) {
+			return changedState;
+		}
+		return null;
+	}
+
+    componentDidMount(){
+        const { user } = this.state;
 
         const req_Packet = {
             customerId:86,
@@ -34,6 +64,8 @@ class index extends Component {
 
 
     render() {
+        const { user , userData } = this.state;
+        console.log("login user data", userData)
         return (
             <React.Fragment>
                 <div id="content">
@@ -71,20 +103,20 @@ class index extends Component {
                                         <p className="descirition">Master Card : 0175</p> 
                                     </div>                          
                                     <div className="creditCardLink w-25">
-                                        <Link to="#">Change</Link> 
+                                        <a href="#">Change</a> 
                                     </div>
                                     </div>
                                 </div>
-                                <Link to="#" className="infoBoxFooter footer-send">SEND MONEY</Link>
+                                <a href="#" className="infoBoxFooter footer-send">SEND MONEY</a>
                                 </div>
                             </div>                
                             <div className="col-12 col-lg-6 sm-mr-t-15">
                                 <div className="theme-info-box">
                                 <h2 className="infoBoxHeader">MY CARD</h2>
                                 <div className="boxBody">
-                                    <Link to="#">
+                                    <a href="#">
                                         <img src="./assets/media/ic_card.png" alt="ic_card"  />
-                                    </Link>
+                                    </a>
                                 </div>
                                 </div>
                             </div>
@@ -137,7 +169,7 @@ class index extends Component {
                                     </div>
                                     </div>
                                 </div>
-                                <Link to="#" className="infoBoxFooter footer-add">+ CREATE INCOICE</Link>
+                                <a href="#" className="infoBoxFooter footer-add">+ CREATE INCOICE</a>
                                 </div>
                             </div>                
                             <div className="col-12 col-lg-6 sm-mr-t-15">
@@ -158,7 +190,7 @@ class index extends Component {
                                     </div>                        
                                     <div className="rowCol w-30">
                                         <div className="moneyInfo">
-                                        <Link to="#" className="btn btn-theme"> Send Money </Link>
+                                        <a href="#" className="btn btn-theme"> Send Money </a>
                                         </div>
                                     </div>
                                     </div>                      
@@ -176,12 +208,12 @@ class index extends Component {
                                     </div>                        
                                     <div className="rowCol w-30">
                                         <div className="moneyInfo">
-                                        <Link to="#" className="btn btn-theme"> Send Money </Link>
+                                        <a href="#" className="btn btn-theme"> Send Money </a>
                                         </div>
                                     </div>
                                     </div>
                                 </div>
-                                <Link to="#" className="infoBoxFooter footer-add">+ ADD</Link>
+                                <a href="#" className="infoBoxFooter footer-add">+ ADD</a>
                                 </div>
                             </div>
                             </div>              
@@ -190,7 +222,7 @@ class index extends Component {
                         <div className="col-12 col-xxl-4 md-mr-t-15">
                             <div className="theme-info-box">
                             <div className="profileBox">
-                                <Link to="/user-profile" className="theme-link">View</Link>
+                                <a href="/user-profile" className="theme-link">View</a>
                                 <div className="profileImg">
                                 <img src="./assets/media/ic_profile_placeholder@2x.png" alt=""/>
                                 </div>
@@ -205,7 +237,7 @@ class index extends Component {
                                     <p className="descirition">Master Card : 0175</p> 
                                 </div>                          
                                 <div className="creditCardLink w-25">
-                                    <Link to="#">Change</Link> 
+                                    <a href="#">Change</a> 
                                 </div>
                                 </div>
                             </div>
@@ -214,7 +246,7 @@ class index extends Component {
                                 <h2 className="transHead">
                                     RECENT TRANSACTION
                                 </h2>
-                                <Link to="#" className="theme-link">View All</Link>
+                                <a href="#" className="theme-link">View All</a>
                                 </div>
                                 <div className="boxBody scrollContainer">
                                 <div className="balanceRow invoiceRow">
@@ -345,7 +377,8 @@ class index extends Component {
 }
 const mapStateToProps = (state) => {
 	return {
-		
+        page: state.page,
+        auth: state.auth
 	};
 };
 

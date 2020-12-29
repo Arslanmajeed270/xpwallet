@@ -28,7 +28,7 @@ class exchange extends Component {
                                 <img src="./assets/media/ic_canada.png" alt=""/>
                                 <div className="details pl-3">
                                     <h2 className="transactionTitle">Canadian Dollar</h2>
-                                    <Link to="#" className="btn btn-theme badge">Primary</Link>
+                                    <a href="#" className="btn btn-theme badge">Primary</a>
                                 </div>
                                 </div>
                                 <div className="ml-auto">
@@ -42,8 +42,8 @@ class exchange extends Component {
                                 </div>
                             </div>
                             <div className="transactionLinks p-lg-3 p-0">
-                                <Link to="#" className="theme-link">Automatic transfers</Link>
-                                <Link to="#" className="theme-link pl-3">Convert currency</Link>
+                                <a href="#" className="theme-link">Automatic transfers</a>
+                                <a href="#" className="theme-link pl-3">Convert currency</a>
                             </div>
                             </div>                 
                             <div className="border-box mb-3">
@@ -52,7 +52,7 @@ class exchange extends Component {
                                 <img src="../assets/media/ic_canada.png" alt="" />
                                 <div className="details pl-3">
                                     <h2 className="transactionTitle">Canadian Dollar</h2>
-                                    <Link to="#" className="btn btn-theme badge">Primary</Link>
+                                    <a href="#" className="btn btn-theme badge">Primary</a>
                                 </div>
                                 </div>
                                 <div className="ml-auto">
@@ -66,13 +66,13 @@ class exchange extends Component {
                                 </div>
                             </div>
                             <div className="transactionLinks p-lg-3 p-0">
-                                <Link to="#" className="theme-link">Automatic transfers</Link>
-                                <Link to="#" className="theme-link pl-3">Convert currency</Link>
+                                <a href="#" className="theme-link">Automatic transfers</a>
+                                <a href="#" className="theme-link pl-3">Convert currency</a>
                             </div>
                             </div>
                             <div className="transactionAddOptions mb-3 px-lg-4 px-1">
-                            <Link to="#" className="theme-link pl-2">Add Currency</Link>
-                            <Link to="#" className="theme-link icon-calculator pl-lg-4 pl-2">Currency Calculator</Link>
+                            <a href="#" className="theme-link pl-2">Add Currency</a>
+                            <a href="#" className="theme-link icon-calculator pl-lg-4 pl-2">Currency Calculator</a>
                             </div>                
                             <div className="transactionAccounts pt-3">
                             <h2>
@@ -80,12 +80,12 @@ class exchange extends Component {
                             </h2>
                             <div className="transaction-banks px-3 py-4 d-flex flex-lg-row flex-column align-items-center">
                                 <img src="./assets/media/ic_bank.jpg" alt=""/>
-                                <Link className="pl-lg-4 mt-lg-0 mt-2" to="#">
+                                <a className="pl-lg-4 mt-lg-0 mt-2" href="#">
                                 <div className="link-account d-flex flex-column align-items-center justify-content-center">
                                     <img src="./assets/media/ic_link.png" alt=""/>
                                     <span className="theme-link pt-3">Link a new bank account</span> 
                                 </div>
-                                </Link>
+                                </a>
                             </div>
                             </div>                
                             <div className="transactionAccounts pt-3">
@@ -101,9 +101,9 @@ class exchange extends Component {
                                 <span className>****235</span>
                                 <span className="colorDanger ml-auto">Expired</span>
                                 </div>
-                                <Link className="theme-link ml-lg-3 ml-0 mt-lg-0 mt-2 px-2" to="#">
+                                <a className="theme-link ml-lg-3 ml-0 mt-lg-0 mt-2 px-2" href="#">
                                 + Add a credit card
-                                </Link>
+                                </a>
                             </div>
                             </div>
                         </div>

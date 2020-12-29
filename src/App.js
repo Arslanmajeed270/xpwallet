@@ -5,7 +5,18 @@ import { Route , withRouter } from 'react-router-dom';
 import Index from "./pages/index";
 import AuthIndex from './pages/Auth'
 
+
+import { connect } from 'react-redux';
+
+import * as actions from './store/Actions/authActions';
 class App extends Component {
+
+
+    componentDidMount() {
+		if (localStorage.jwtToken) {
+			this.props.setCurrentUser(JSON.parse(localStorage.jwtToken));
+        }
+    }
   render() {
     return (
       <React.Fragment>        
@@ -103,4 +114,11 @@ class App extends Component {
     )
   }
 }
-export default withRouter(App);
+const mapDispatchToProps = dispatch => {
+    return {
+      setCurrentUser: (data) => dispatch(actions.setCurrentUser(data)),
+    };
+  };
+  
+  
+  export default withRouter(connect(null,mapDispatchToProps)(App));

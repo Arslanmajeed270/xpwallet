@@ -13,7 +13,7 @@ class transactionDetails extends Component {
                             <div className="table-container trasactionDetails w-100">
                                 <div className="note table-note">
                                 <h2 className="noteTitle float-left">Welcome, Adnan Qureshi</h2>
-                                <Link to="#" className="float-right"> <img src="./assets/media/ink.png" alt=""/> </Link>
+                                <a href="#" className="float-right"> <img src="./assets/media/ink.png" alt=""/> </a>
                                 </div> 
                             </div> 
                             </div>
@@ -230,11 +230,11 @@ class transactionDetails extends Component {
                                             Contact Infotmation
                                         </td>
                                         <td>
-                                            <Link to="#" className="color-Theme">GitHub, Inc</Link>
+                                            <a href="#" className="color-Theme">GitHub, Inc</a>
                                             <br />
                                             The recipient of this payment is <span className="bold">Verified</span>
                                             <br />
-                                            <Link to="#" className="color-Theme">http://github.com/</Link>                            
+                                            <a href="#" className="color-Theme">http://github.com/</a>                            
                                             <br />                            
                                             support@github.com
                                             <br />

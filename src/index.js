@@ -12,12 +12,14 @@ import App from './App';
 
 //import Redux
 import authReducer from './store/Reducers/authReducer'
+import pageReducer from './store/Reducers/pageReducer'
 
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const rootReducer = combineReducers({
-	auth : authReducer
+	auth : authReducer,
+	page: pageReducer
 });
 
 //const store = createStore(burgerBuilderReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());

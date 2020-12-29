@@ -17,10 +17,10 @@ class addMoney1 extends Component {
                                 </div>
                                 <form className="main-form customFieldDesign innerPageForm" id="addMoney">
                                 <div className="form-group form-group-btn">
-                                    <Link to="/add-money-2" className="btn btn-raised group-btn">Bank Account <span className="redirectDetails">Transfer from your bank account in minutes</span></Link>
+                                    <a href="/add-money-2" className="btn btn-raised group-btn">Bank Account <span className="redirectDetails">Transfer from your bank account in minutes</span></a>
                                 </div>
                                 <div className="form-group form-group-btn">
-                                    <Link to="/add-money-2" className="btn btn-raised group-btn">Credit Card <span className="redirectDetails">Transfer from your credit card in 1 - 5 business days</span></Link>
+                                    <a href="/add-money-2" className="btn btn-raised group-btn">Credit Card <span className="redirectDetails">Transfer from your credit card in 1 - 5 business days</span></a>
                                 </div>              
                                 </form>
                             </div>   

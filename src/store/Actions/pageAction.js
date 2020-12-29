@@ -19,7 +19,10 @@ export const getUserData = (userData) => (dispatch) => {
 		.then((res) => {
 			console.log('res on Login User', res)
             if (res && res.data && res.data.resultCode === '00') {
-                dispatch({ type: GET_USER_DETAILS });
+				dispatch({ 
+					type: GET_USER_DETAILS,
+					payload: res.data && res.data.responseData && res.data.responseData.customer ? res.data.responseData.customer : {},
+				 });
             }
 		})
 		.catch((err) => {
