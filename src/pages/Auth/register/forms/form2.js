@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
 
 class form2 extends Component {
     render() {
@@ -18,7 +17,7 @@ class form2 extends Component {
                 </div>              
             </form>
             <div className="infoBottom text-center">
-                <Link to="../index.html" className="redirectLink">I already have an account</Link>
+                <to href="../index.html" className="redirectLink">I already have an account</to>
             </div>
             </div>   
         )

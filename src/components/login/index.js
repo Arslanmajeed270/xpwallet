@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 
 import { connect } from 'react-redux';
 import * as actions from '../../store/Actions';
@@ -9,9 +8,31 @@ class index extends Component {
 		super(props);
 		this.state = {
             email:'',
-            password:''
+            password:'',
+            user:{}
 		};
     }
+
+    static getDerivedStateFromProps(props, state) {
+		const auth = props.auth;
+		let stateChanged = false;
+		let changedState = {};
+
+		if (
+			auth &&
+			JSON.stringify(state.user) !== JSON.stringify(auth.user)
+		) {
+			changedState.user = auth.user;
+			stateChanged = true;
+		}
+
+		if (stateChanged) {
+			return changedState;
+		}
+		return null;
+	}
+
+
     onChange = e =>{
         this.setState({ [e.target.name]: e.target.value });
     }
@@ -26,7 +47,8 @@ class index extends Component {
         console.log('request Packet', userData)
     }
     render() {
-        const { email , password } = this.state;
+        const { email , password, user } = this.state;
+        console.log("login user data", user)
         return (
             <div className="form-container">
                             <div className="note text-center">
@@ -46,13 +68,16 @@ class index extends Component {
                                 <button type="submit" className="btn btn-primary btn-raised w-100">Submit</button>
                             </form>
                             <div className="infoBottom text-center">
-                                <Link to="/register" className="redirectLink">Create an account</Link>
+                                <a href="/register" className="redirectLink">Create an account</a>
                             </div>
                             </div>   
                         
         )
     }
 }
+
+
+
 const mapDispatchToProps = (dispatch) => {
 	return {
 		onLogin: (userData, history) =>

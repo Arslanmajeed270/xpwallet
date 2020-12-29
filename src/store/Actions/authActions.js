@@ -53,9 +53,11 @@ export const loginUser = (userData, history) => (dispatch) => {
 	axios
 		.post(backendServerURL + '/authenticateUser', userData)
 		.then((res) => {
-            if (res.data && res.data.data && res.data.data.user) {
-				localStorage.setItem('jwtToken', JSON.stringify(res.data.data.user));
-				dispatch(setCurrentUser(res.data.data.user));
+			console.log("res from backend", res)
+            if (res.data && res.data.responseData && res.data.responseData.user) {
+				localStorage.setItem('jwtToken', JSON.stringify(res.data.responseData.user));
+				dispatch(setCurrentUser(res.data.responseData.user));
+				history.push('/dashboard')
 			} else {
 				dispatch({
 					type: SET_ERRORS,

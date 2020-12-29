@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
 
 import { connect } from 'react-redux';
 import * as actions from '../../../../store/Actions/authActions';
@@ -133,7 +132,7 @@ class from1 extends Component {
                 </div>
             </form>
             <div className="infoBottom text-center">
-                <Link to="/login" className="redirectLink" >I already have an account</Link>
+                <a href="/login" className="redirecta">I already have an account</a>
             </div>
             </div>
         )
