@@ -8,8 +8,7 @@ import AuthIndex from './pages/Auth'
 class App extends Component {
   render() {
     return (
-      <React.Fragment>
-        
+      <React.Fragment>        
         <Route 
             exact
             path={'/register'}

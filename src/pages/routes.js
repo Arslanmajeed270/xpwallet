@@ -23,7 +23,7 @@ class Routes extends React.Component {
 	render(){
 		console.log("checking props: ", this.props);
 		return (
-			<Router>
+			<React.Fragment>
 				<Route  
 					exact 
 					path={"/dashboard"} 
@@ -104,9 +104,9 @@ class Routes extends React.Component {
 					path={"/recharge-card"} 
 					component={RechargeCard}
 				/>
-			</Router>
+			</React.Fragment>
 		);
 	}
 }
 
-export default withRouter(Routes);
+export default Routes;

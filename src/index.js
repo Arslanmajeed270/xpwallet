@@ -11,13 +11,13 @@ import './index.css';
 import App from './App';
 
 //import Redux
-import auth from './store/Reducers/authReducer'
+import authReducer from './store/Reducers/authReducer'
 
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const rootReducer = combineReducers({
-	authReducer : auth
+	auth : authReducer
 });
 
 //const store = createStore(burgerBuilderReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());

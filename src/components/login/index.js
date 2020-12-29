@@ -28,15 +28,7 @@ class index extends Component {
     render() {
         const { email , password } = this.state;
         return (
-            <React.Fragment>
-                <div className="login-Container">
-                    <div className="row no-gutters h-100">
-                        <div className="col-md-4 h-100 hide-responsive">
-                        <img className="side-banner" src="./assets/media/ic_banner_img.png" alt="ic_banner_img.png" />
-                        </div>
-                        <div className="col-12 col-md-8 h-100">
-                        <div className="row no-gutters h-100 justify-content-center align-items-center">
-                            <div className="form-container">
+            <div className="form-container">
                             <div className="note text-center">
                                 <img className="form-logo" src="./assets/media/xp_wallet_form.png" alt="xp_wallet_form.png" />
                                 <h2 className="noteTitle">Welcome Back</h2>
@@ -57,11 +49,7 @@ class index extends Component {
                                 <Link to="/register" className="redirectLink">Create an account</Link>
                             </div>
                             </div>   
-                        </div> 
-                        </div>
-                    </div>
-                    </div>
-            </React.Fragment>
+                        
         )
     }
 }
