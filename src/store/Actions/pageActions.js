@@ -3,12 +3,28 @@ import axios from 'axios';
 import {
     GET_USER_DETAILS,
     SET_ERRORS,
-    GET_RECENT_TRANSACTION
+	GET_RECENT_TRANSACTION,
+	PAGE_LOADED,
+	PAGE_LOADING
 } from './actionTypes';
 
 
 const backendServerURL = process.env.REACT_APP_API_URL;
 
+
+export const setPageLoading = () => {
+	return {
+		type: PAGE_LOADING,
+	};
+};
+
+export const clearPageLoading = () => {
+	return {
+		type: PAGE_LOADED,
+	};
+};
+
+// **** Starting Page functions ****** //
 
 // getUserData - getUserData a new User
 export const getUserData = (userData) => (dispatch) => {

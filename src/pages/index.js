@@ -6,6 +6,8 @@ import Routes from './routes';
 
 import LoginPopup from '../components/Popups/Login'
 
+import { appendScript, removeScript } from '../scriptLoader/loadScript'
+
 
 
 class index extends Component {
@@ -19,6 +21,17 @@ class index extends Component {
             otpPopup:false
         }
     }
+
+    componentDidMount(){
+        console.log('checking i am here componentDidMount');
+        appendScript();
+    }
+
+    componentWillUnmount(){
+        console.log('checking i am here componentWillUnmount');
+        removeScript();
+    }
+
     closeCodeHandler = (model) => {
         this.setState({
             [model]: false,

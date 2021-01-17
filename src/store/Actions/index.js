@@ -6,9 +6,11 @@ from './authActions';
 
 export {
     getUserData,
-    getRecentTransaction
+    getRecentTransaction,
+    setPageLoading,
+    clearPageLoading
 }
-from './pageAction';
+from './pageActions';
 
 export {
     addCreditCard,

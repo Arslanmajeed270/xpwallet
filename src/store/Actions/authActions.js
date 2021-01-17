@@ -2,14 +2,11 @@ import axios from 'axios';
 // import setAuthToken from '../../utils/setAuthToken';
 
 import {
-    CREATE_USER_SUCCESS,
-    CREATE_USER_FAIL,
     SET_ERRORS,
-    SET_CURRENT_USER,
-    LOGIN_USER
+    SET_CURRENT_USER
 } from './actionTypes';
 
-// import { setPageLoading, clearPageLoading, clearErrors } from './pageActions';
+import { setPageLoading, clearPageLoading } from './index';
 
 const backendServerURL = process.env.REACT_APP_API_URL;
 
@@ -25,23 +22,18 @@ export const setCurrentUser = (decoded) => {
 
 // Register - Register a new User
 export const registerUser = (userData) => (dispatch) => {
-	// dispatch(setPageLoading());
+	dispatch(setPageLoading());
 
 	axios
 		.post(backendServerURL+`/registerUser`,userData)
 		.then((res) => {
-            if (res && res.data && res.data.resultCode === '200') {
-                dispatch({ type: CREATE_USER_SUCCESS });
-            }
-            else{
-                dispatch({type: CREATE_USER_FAIL})
-            }
-            console.log('res on Login User', res)
+			console.log('checking registerUser resp: ', res);
+			dispatch(clearPageLoading());
 		})
 		.catch((err) => {
 			dispatch({
 				type: SET_ERRORS,
-				// payload:err && err.response && err.response.data ? err.response.data : {},
+				payload:err && err.response && err.response.data ? err.response.data : {},
 			});
 		})
 		.finally();

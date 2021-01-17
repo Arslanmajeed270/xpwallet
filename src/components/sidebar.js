@@ -14,34 +14,34 @@ class sidebar extends Component {
                         </div>
                         </div>
                         <li className="active">
-                        <a href="/dashboard">Home</a>
+                        <Link to="/dashboard">Home</Link>
                         </li>
                         <li>
-                        <a href="/add-money-1">Recharge</a>
+                        <Link to="/add-money-1">Recharge</Link>
                         </li>            
                         <li>
-                        <a href="/transfer">Transfer</a>
+                        <Link to="/transfer">Transfer</Link>
                         </li>
                         <li>
-                        <a href="/withdraw">Withdraw</a>
+                        <Link to="/withdraw">Withdraw</Link>
                         </li>            
                         <li>
-                        <a href="/exchange">Exchange</a>
+                        <Link to="/exchange">Exchange</Link>
                         </li>             
                         <li>
-                        <a href="/recent-transaction">Recent Transaction</a>
+                        <Link to="/recent-transaction">Recent Transaction</Link>
                         </li>            
                         <li>
-                        <a href="#">Terms &amp; Conditions</a>
+                        <Link to="#">Terms &amp; Conditions</Link>
                         </li>              
                         <li>
-                        <a href="#">Help &amp; Support</a>
+                        <Link to="#">Help &amp; Support</Link>
                         </li>            
                         <li className="showResponsive">
-                        <a href="#">Notification</a>
+                        <Link to="#">Notification</Link>
                         </li>
                         <li>
-                        <a href="#">Logout</a>
+                        <Link to="#">Logout</Link>
                         </li>
                     </ul>
                 </nav>

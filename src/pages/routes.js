@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter as Router , Route,  withRouter} from 'react-router-dom';
+import {Route} from 'react-router-dom';
 import Index from './Dashboard';
 import UserProfile from './Dashboard/userProfile';
 import Exchange from './Exchange/exchange';

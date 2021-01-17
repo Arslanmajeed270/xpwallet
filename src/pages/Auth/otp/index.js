@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-class form5 extends Component {
+class Index extends Component {
     render() {
         return (
             <div className="form-container">
@@ -23,4 +23,5 @@ class form5 extends Component {
         )
     }
 }
-export default form5;
+
+export default Index;

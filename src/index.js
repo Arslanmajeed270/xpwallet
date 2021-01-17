@@ -4,29 +4,11 @@ import ReactDOM from 'react-dom';
 // Router and Redux setup setup start
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
-import thunk from 'redux-thunk';
+
+import { store } from './store/Reducers'
 
 import './index.css';
 import App from './App';
-
-//import Redux
-import authReducer from './store/Reducers/authReducer'
-import pageReducer from './store/Reducers/pageReducer'
-
-
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-
-const rootReducer = combineReducers({
-	auth : authReducer,
-	page: pageReducer
-});
-
-//const store = createStore(burgerBuilderReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
-const store = createStore(
-	rootReducer,
-	composeEnhancers(applyMiddleware(thunk))
-);
 
 const app = (
 	<Provider store={store}>

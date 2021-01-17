@@ -1,7 +1,8 @@
 import React from 'react';
 import {Route} from 'react-router-dom';
-import Register from './register/index'
+import Register from './register'
 import Login from './login'
+import Otp from './otp'
 
 
 class Routes extends React.Component {
@@ -18,6 +19,11 @@ class Routes extends React.Component {
 					exact 
 					path={"/login"} 
 					component={Login}
+				/>
+				<Route  
+					exact 
+					path={"/otp"} 
+					component={Otp}
 				/>
 			</React.Fragment>
 		);

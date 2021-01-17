@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 import {
     CREATE_USER_FAIL,
     CREATE_USER_SUCCESS,
