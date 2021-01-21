@@ -1,7 +1,35 @@
 import React, { Component } from 'react'
+import { MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem } from "mdbreact";
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 class header extends Component {
+
+    state = {
+        user: {}
+    }
+
+    static getDerivedStateFromProps(props, state) {
+		const { auth } = props;
+		let stateChanged = false;
+        let changedState = {};
+		if ( auth && JSON.stringify(state.user) !== JSON.stringify(auth.user) ) {
+			changedState.user = auth.user;
+			stateChanged = true;
+		}
+
+		if (stateChanged) return changedState;
+		return null;
+    }
+
+    logoutHandler = () => {
+        const { history } = this.props;
+        history.replace('/login');
+        localStorage.removeItem("jwtToken");
+    }
+
     render() {
+        const { user } = this.state;
         return (
             <React.Fragment>
                 <div className="header">
@@ -21,14 +49,21 @@ class header extends Component {
                     </div>
                     <div className="content-right">
                         <div className="notificationLogo">
-                        <a href="#" className="notifications">
+                        <Link to="#" className="notifications">
                             <img src="./assets/media/ic_notification.png" alt="ic_notification.png" />
                             <span className="count">0</span>
-                        </a>
+                        </Link>
                         </div>
                         <div className="accountInfo">
-                        <img src="./assets/media/ic_profile_placeholder.png" alt="ic_profile_placeholder.png" />
-                        <span className="accountTitle">Adnan Q</span>
+                        <MDBDropdown>
+                            <MDBDropdownToggle color="primary">
+                                <img src="./assets/media/ic_profile_placeholder.png" alt="ic_profile_placeholder.png" />
+                            </MDBDropdownToggle>
+                            <MDBDropdownMenu basic>
+                                <MDBDropdownItem onClick={this.logoutHandler}> Logout </MDBDropdownItem>
+                            </MDBDropdownMenu>
+                        </MDBDropdown>
+                        <span className="accountTitle">{ user && user.firstName ? user.firstName : "" } { user && user.lastName ? user.lastName : "" }</span>
                         </div>
                     </div>
                 </div>
@@ -36,4 +71,11 @@ class header extends Component {
         )
     }
 }
-export default header;
+
+const mapStateToProps = (state) => {
+	return {
+        auth: state.auth
+	};
+};
+
+export default connect(mapStateToProps, null)(header);

@@ -22,7 +22,7 @@ class Routes extends React.Component {
 				/>
 				<Route  
 					exact 
-					path={"/otp"} 
+					path={"/register-otp"} 
 					component={Otp}
 				/>
 			</React.Fragment>

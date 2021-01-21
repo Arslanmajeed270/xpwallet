@@ -17,13 +17,13 @@ class transfer extends Component {
                                 </div>
                                 <form className="main-form customFieldDesign innerPageForm" id="addMoney">
                                 <div className="form-group form-group-btn">
-                                    <a href="add-bank" className="btn btn-raised group-btn">Instant <span className="redirectDetails">Transfer from your bank account in minutes</span></a>
+                                    <Link to="add-bank" className="btn btn-raised group-btn">Instant <span className="redirectDetails">Transfer from your bank account in minutes</span></Link>
                                 </div>
                                 <div className="form-group form-group-btn">
-                                    <a href="/add-card" className="btn btn-raised group-btn">Standard <span className="redirectDetails">Transfer from your credit card in 1 - 5 business days</span></a>
+                                    <Link to="/add-card" className="btn btn-raised group-btn">Standard <span className="redirectDetails">Transfer from your credit card in 1 - 5 business days</span></Link>
                                 </div>                       
                                 <div className="form-group form-group-btn">
-                                    <a href="/add-xp-wallet" className="btn btn-raised group-btn">XP Wallet <span className="redirectDetails">Transfer to friends and family in minutes</span></a>
+                                    <Link to="/add-xp-wallet" className="btn btn-raised group-btn">XP Wallet <span className="redirectDetails">Transfer to friends and family in minutes</span></Link>
                                 </div>              
                                 </form>
                             </div>   

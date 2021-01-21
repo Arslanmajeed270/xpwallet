@@ -1,3 +1,21 @@
 body {
   margin: 0;
 }
+.header .content-right > div{
+  padding-left: 20px;
+  padding-right: 0;
+}
+.accountInfo .dropdown{
+  width: 55px;
+  display: inline-block;
+}
+.header .accountInfo .accountTitle{
+  display: inline-block;
+  vertical-align: middle;
+  float: none;
+}
+.accountInfo .dropdown button:hover,.accountInfo .dropdown button:focus, .accountInfo .dropdown button:active:hover,.accountInfo .dropdown button:active:focus
+.accountInfo .dropdown  btn-primary:not(:disabled):not(.disabled):active{
+  background-color: transparent;
+  background: transparent;
+}

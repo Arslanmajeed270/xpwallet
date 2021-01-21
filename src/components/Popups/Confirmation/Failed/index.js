@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom';
 
 class index extends Component {
     render() {
@@ -15,7 +16,7 @@ class index extends Component {
                     {/*Body*/}
                     {/*Footer*/}
                     <div className="modal-footer justify-content-center">
-                        <a href className="btn btn-theme w-100 waves-effect">Ok</a>
+                        <Link to="#" className="btn btn-theme w-100 waves-effect">Ok</Link>
                     </div>
                 </div>
             </React.Fragment>

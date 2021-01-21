@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import * as actions from '../../store/Actions';
 
 class index extends Component {
@@ -103,20 +104,20 @@ class index extends Component {
                                         <p className="descirition">Master Card : 0175</p> 
                                     </div>                          
                                     <div className="creditCardLink w-25">
-                                        <a href="#">Change</a> 
+                                        <Link to="#">Change</Link> 
                                     </div>
                                     </div>
                                 </div>
-                                <a href="#" className="infoBoxFooter footer-send">SEND MONEY</a>
+                                <Link to="#" className="infoBoxFooter footer-send">SEND MONEY</Link>
                                 </div>
                             </div>                
                             <div className="col-12 col-lg-6 sm-mr-t-15">
                                 <div className="theme-info-box">
                                 <h2 className="infoBoxHeader">MY CARD</h2>
                                 <div className="boxBody">
-                                    <a href="#">
+                                    <Link to="#">
                                         <img src="./assets/media/ic_card.png" alt="ic_card"  />
-                                    </a>
+                                    </Link>
                                 </div>
                                 </div>
                             </div>
@@ -169,7 +170,7 @@ class index extends Component {
                                     </div>
                                     </div>
                                 </div>
-                                <a href="#" className="infoBoxFooter footer-add">+ CREATE INCOICE</a>
+                                <Link to="#" className="infoBoxFooter footer-add">+ CREATE INCOICE</Link>
                                 </div>
                             </div>                
                             <div className="col-12 col-lg-6 sm-mr-t-15">
@@ -190,7 +191,7 @@ class index extends Component {
                                     </div>                        
                                     <div className="rowCol w-30">
                                         <div className="moneyInfo">
-                                        <a href="#" className="btn btn-theme"> Send Money </a>
+                                        <Link to="#" className="btn btn-theme"> Send Money </Link>
                                         </div>
                                     </div>
                                     </div>                      
@@ -208,12 +209,12 @@ class index extends Component {
                                     </div>                        
                                     <div className="rowCol w-30">
                                         <div className="moneyInfo">
-                                        <a href="#" className="btn btn-theme"> Send Money </a>
+                                        <Link to="#" className="btn btn-theme"> Send Money </Link>
                                         </div>
                                     </div>
                                     </div>
                                 </div>
-                                <a href="#" className="infoBoxFooter footer-add">+ ADD</a>
+                                <Link to="#" className="infoBoxFooter footer-add">+ ADD</Link>
                                 </div>
                             </div>
                             </div>              
@@ -222,7 +223,7 @@ class index extends Component {
                         <div className="col-12 col-xxl-4 md-mr-t-15">
                             <div className="theme-info-box">
                             <div className="profileBox">
-                                <a href="/user-profile" className="theme-link">View</a>
+                                <Link to="/user-profile" className="theme-link">View</Link>
                                 <div className="profileImg">
                                 <img src="./assets/media/ic_profile_placeholder@2x.png" alt=""/>
                                 </div>
@@ -237,7 +238,7 @@ class index extends Component {
                                     <p className="descirition">Master Card : 0175</p> 
                                 </div>                          
                                 <div className="creditCardLink w-25">
-                                    <a href="#">Change</a> 
+                                    <Link to="#">Change</Link> 
                                 </div>
                                 </div>
                             </div>
@@ -246,7 +247,7 @@ class index extends Component {
                                 <h2 className="transHead">
                                     RECENT TRANSACTION
                                 </h2>
-                                <a href="#" className="theme-link">View All</a>
+                                <Link to="#" className="theme-link">View All</Link>
                                 </div>
                                 <div className="boxBody scrollContainer">
                                 <div className="balanceRow invoiceRow">

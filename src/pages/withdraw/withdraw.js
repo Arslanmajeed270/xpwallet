@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom';
 
 class withdraw extends Component {
     render() {
@@ -16,7 +17,7 @@ class withdraw extends Component {
                                 </div>
                                 <form className="main-form customFieldDesign innerPageForm" id="widthDraw">
                                 <div className="form-group form-group-btn group-no-border">
-                                    <a className="btn btn-raised group-btn">TD bank <span className="redirectDetails">Checking **** 0830 <br />Free <br />Bank transfer may take 3-5 working days depending on your account</span></a>
+                                    <Link to="#" className="btn btn-raised group-btn">TD bank <span className="redirectDetails">Checking **** 0830 <br />Free <br />Bank transfer may take 3-5 working days depending on your account</span></Link>
                                 </div>
                                 <div className="form-group select-box">
                                     <label htmlFor="bankSelect" className="bmd-label-floating">Select Currency</label>

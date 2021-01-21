@@ -28,6 +28,7 @@ class Index extends Component {
 
     render() {
         const { loading } = this.state;
+        const { history, location } = this.props;
         let pageContent = <Spinner />;
         if(!loading){
             pageContent = (
@@ -40,7 +41,7 @@ class Index extends Component {
                         <div className="col-12 col-md-8 h-100">
                         <div className="row no-gutters h-100 justify-content-center align-items-center">
                             {/* Routing Start */}
-                            <Routes />
+                            <Routes history={history} location={location} />
                         </div> 
                         </div>
                     </div>

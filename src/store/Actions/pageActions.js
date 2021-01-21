@@ -2,7 +2,6 @@ import axios from 'axios';
 
 import {
     GET_USER_DETAILS,
-    SET_ERRORS,
 	GET_RECENT_TRANSACTION,
 	PAGE_LOADED,
 	PAGE_LOADING
@@ -42,10 +41,10 @@ export const getUserData = (userData) => (dispatch) => {
             }
 		})
 		.catch((err) => {
-			dispatch({
-				type: SET_ERRORS,
-				// payload:err && err.response && err.response.data ? err.response.data : {},
-			});
+			// dispatch({
+			// 	type: SET_ERRORS,
+			// 	// payload:err && err.response && err.response.data ? err.response.data : {},
+			// });
 		})
 		.finally();
 };
@@ -63,10 +62,10 @@ export const getRecentTransaction = (userData) => (dispatch) => {
             console.log('res on Login User', res)
 		})
 		.catch((err) => {
-			dispatch({
-				type: SET_ERRORS,
-				// payload:err && err.response && err.response.data ? err.response.data : {},
-			});
+			// dispatch({
+			// 	type: SET_ERRORS,
+			// 	// payload:err && err.response && err.response.data ? err.response.data : {},
+			// });
 		})
 		.finally();
 };

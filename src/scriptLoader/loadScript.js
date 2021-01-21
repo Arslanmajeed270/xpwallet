@@ -27,6 +27,7 @@ export const appendScript = () => {
         script.src = scriptPath;
         script.async = true;
         document.body.appendChild(script);
+        return scriptPath;
     });
     
 }

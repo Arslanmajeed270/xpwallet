@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom';
 
 class rechargeCard extends Component {
     render() {
@@ -15,8 +16,8 @@ class rechargeCard extends Component {
                             </div>
                             <form className="main-form customFieldDesign innerPageForm" id="addMoney2">
                                 <div className="form-group form-group-btn group-no-border table-group">
-                                <a className="btn btn-raised group-btn">TD bank <span className="cardNumber">**** **** **** 0830</span></a>
-                                <a className="btn btn-raised group-btn">July/2021 <span className="cardType">Master Card</span></a>
+                                <Link to="#" className="btn btn-raised group-btn">TD bank <span className="cardNumber">**** **** **** 0830</span></Link>
+                                <Link to="#" className="btn btn-raised group-btn">July/2021 <span className="cardType">Master Card</span></Link>
                                 </div>
                                 <div className="form-group">
                                 <label htmlFor="formGroupInput3" className="bmd-label-floating ">CVV</label>

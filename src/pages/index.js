@@ -4,11 +4,7 @@ import SideBar from '../components/sidebar';
 
 import Routes from './routes';
 
-import LoginPopup from '../components/Popups/Login'
-
 import { appendScript, removeScript } from '../scriptLoader/loadScript'
-
-
 
 class index extends Component {
     constructor(props) {
@@ -23,12 +19,10 @@ class index extends Component {
     }
 
     componentDidMount(){
-        console.log('checking i am here componentDidMount');
         appendScript();
     }
 
     componentWillUnmount(){
-        console.log('checking i am here componentWillUnmount');
         removeScript();
     }
 
@@ -55,23 +49,19 @@ class index extends Component {
         }
     }
     render() {
+        const { history } = this.props;
         return (
             <React.Fragment>
-                {this.state.loginPopup && (
-					<LoginPopup
-						show={this.state.loginPopup}
-						closeCodelHanlder={this.closeCodelHanlder}
-						emailSigninHandler={this.modelHanlder}
-					/>
-				)}
-                <Header />
+                <Header history={history}  />
                 <SideBar />
                 <Routes 
                    modelHandler = {this.modelHandler}
                    closeCodeHandler = {this.closeCodeHandler}
+                   history={history}
                 />
             </React.Fragment>
         )
     }
 }
+
 export default index;

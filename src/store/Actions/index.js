@@ -1,6 +1,9 @@
 export {
+    setCurrentUser,
     registerUser,
     loginUser,
+    generatePin,
+    verifyPin
 }
 from './authActions';
 
@@ -16,4 +19,4 @@ export {
     addCreditCard,
     getCreditCardList
 }
-from './CardBankAction';
+from './cardAction';

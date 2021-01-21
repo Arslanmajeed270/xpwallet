@@ -1,9 +1,8 @@
 import axios from 'axios';
-// import setAuthToken from '../../utils/setAuthToken';
+import { Success, Error } from '../../components/common/toastify'
 
 import {
-    SET_ERRORS,
-    SET_CURRENT_USER
+	SET_CURRENT_USER
 } from './actionTypes';
 
 import { setPageLoading, clearPageLoading } from './index';
@@ -19,49 +18,101 @@ export const setCurrentUser = (decoded) => {
 	};
 };
 
+// Generate - Generate a pin for the User
+export const generatePin = (userData, history) => (dispatch) => {
+	dispatch(setPageLoading());
+
+	axios
+		.post(backendServerURL+`/generatePin`,userData)
+		.then((res) => {
+			console.log('checking generatePin resp: ', res);
+			if(res.data.message === "Success"){
+				history.push('/register-otp');
+				Success('Please verify otp to create account!');
+			}else{
+				Error('Something went wrong! Please try again.');
+			}
+		})
+		.catch((err) => {
+			console.log("checking error: ", err);
+			Error('Something went wrong! Please try again.');
+		})
+		.finally(()=> {
+			dispatch(clearPageLoading());
+		});
+};
+
+// Verify - Verify a otp for the User
+export const verifyPin = (pinData, userData, history) => (dispatch) => {
+	dispatch(setPageLoading());
+
+	axios
+		.post(backendServerURL+`/verifyPin`,pinData)
+		.then((res) => {
+			console.log('checking verifyPin resp: ', res);
+			if(res.data.message === "Success"){
+				dispatch(registerUser(userData, history));
+			}else{
+				Error(res.data.message);
+			}
+		})
+		.catch((err) => {
+			console.log("checking error: ", err);
+			Error('Something went wrong! Please try again.');
+		})
+		.finally(()=> {
+			dispatch(clearPageLoading());
+		});
+};
 
 // Register - Register a new User
-export const registerUser = (userData) => (dispatch) => {
+export const registerUser = (userData, history) => (dispatch) => {
 	dispatch(setPageLoading());
 
 	axios
 		.post(backendServerURL+`/registerUser`,userData)
 		.then((res) => {
-			console.log('checking registerUser resp: ', res);
-			dispatch(clearPageLoading());
-		})
-		.catch((err) => {
-			dispatch({
-				type: SET_ERRORS,
-				payload:err && err.response && err.response.data ? err.response.data : {},
-			});
-		})
-		.finally();
-};
-// Logiin - Login a User
-export const loginUser = (userData, history) => (dispatch) => {
-	// dispatch(setPageLoading());
-	console.log("login user function")
-	axios
-		.post(backendServerURL + '/authenticateUser', userData)
-		.then((res) => {
-			console.log("res from backend", res)
-            if (res.data && res.data.responseData && res.data.responseData.user) {
-				localStorage.setItem('jwtToken', JSON.stringify(res.data.responseData.user));
-				dispatch(setCurrentUser(res.data.responseData.user));
-				history.push('/dashboard')
-			} else {
-				dispatch({
-					type: SET_ERRORS,
-					payload: { message: 'Username or password wrong!' },
-				});
+			console.log('checking registerUser resp: ', res);	
+			if(res.data.message === "Success"){
+				Success("User successfully created!");
+				history.push('/login');
+				localStorage.removeItem("registerUser");
+			}else{
+				Error(res.data.message);
 			}
 		})
 		.catch((err) => {
-			dispatch({
-				type: SET_ERRORS,
-				payload:err && err.response && err.response.data ? err.response.data : {},
-			});
+			console.log("checking error: ", err);
+			Error('Something went wrong! Please try again.');
 		})
-		.finally();
+		.finally(()=> {
+			dispatch(clearPageLoading());
+		});
+};
+
+// Login - Login a User
+export const loginUser = (userData, history) => (dispatch) => {
+	dispatch(setPageLoading());
+	console.log("checking userData: ", loginUser);
+	axios
+		.post(backendServerURL + '/authenticateUser', userData)
+		.then((res) => {
+			console.log("res from backend", res);
+			if(res.data.message === "Success"){
+				const userResponse = res.data.responseData.user;
+				localStorage.setItem('jwtToken', JSON.stringify(userResponse));
+				dispatch(setCurrentUser(userResponse));
+				history.push('/dashboard')
+				Success("User successfully logged in!");
+			}else{
+				Error("Username or password wrong!");
+			}
+		})
+		.catch((err) => {
+			console.log("checking error: ", err);
+			Error('Something went wrong! Please try again.');
+		})
+		.finally(()=> {
+			dispatch(clearPageLoading());
+		});
 };

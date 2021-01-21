@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom';
 
 class userProfile extends Component {
     render() {
@@ -29,9 +30,9 @@ class userProfile extends Component {
                                             <input type="email" defaultValue="demo@test.com" readOnly="readonly" /> 
                                         </td>                          
                                         <td className="text-right">
-                                            <a href="#" id="updateEmail" className="color-Theme pointer"> Update </a><a>
-                                            </a><a href="#" id="saveEmail" className="color-Theme pointer d-none"> Save </a><a>
-                                            </a></td>                                                 
+                                        <Link to="#" id="updateEmail" className="color-Theme pointer"> Update </Link>
+                                            <Link to="#" id="saveEmail" className="color-Theme pointer d-none"> Save </Link>
+                                        </td>                                                 
                                         </tr>                         
                                         <tr>
                                         <td>
@@ -43,9 +44,8 @@ class userProfile extends Component {
                                             <input type="tel" defaultValue="0092 300 8134076" readOnly="readonly" /> (Mobile)
                                         </td>                          
                                         <td className="text-right">
-                                            <a href="#" id="updatePhone" className="color-Theme pointer"> Update </a><a>
-                                            </a><a href="#" id="savePhone" className="color-Theme pointer d-none"> Save </a><a>
-                                            </a></td>                                                 
+                                            <Link to="#" id="updatePhone" className="color-Theme pointer"> Update </Link>
+                                            <Link to="#" id="savePhone" className="color-Theme pointer d-none"> Save </Link></td>                                                 
                                         </tr>                         
                                         <tr>
                                         <td>
@@ -55,9 +55,9 @@ class userProfile extends Component {
                                             <input type="password" defaultValue="* * * * * *" readOnly="readonly" />
                                         </td>                          
                                         <td className="text-right">
-                                            <a href="#" id="updatePassword" className="color-Theme pointer"> Change </a><a>
-                                            </a><a href="#" id="savePassword" className="color-Theme pointer d-none"> Save </a><a>
-                                            </a></td>                                                 
+                                            <Link to="#" id="updatePassword" className="color-Theme pointer"> Change </Link>
+                                            <Link to="#" id="savePassword" className="color-Theme pointer d-none"> Save </Link>
+                                            </td>                                                 
                                         </tr>                         
                                         <tr>
                                         <td>
@@ -71,9 +71,9 @@ class userProfile extends Component {
                                             <input type="hidden" defaultValue />
                                         </td>                          
                                         <td className="text-right">
-                                            <a href="#" id="updateSecurity" className="color-Theme pointer"> Update </a><a>
-                                            </a><a href="#" id="saveSecurity" className="color-Theme pointer d-none"> Save </a><a>
-                                            </a></td>                                                 
+                                            <Link to="#" id="updateSecurity" className="color-Theme pointer"> Update </Link>
+                                            <Link to="#" id="saveSecurity" className="color-Theme pointer d-none"> Save </Link>
+                                        </td>                                                 
                                         </tr>                         
                                         <tr>
                                         <td>
@@ -83,8 +83,8 @@ class userProfile extends Component {
                                             Bussiness
                                         </td>                          
                                         <td className="text-right">
-                                            <a href="#" id="closeAccount" className="color-Theme pointer"> Close account </a><a>
-                                            </a></td>                                                 
+                                            <Link to="#" id="closeAccount" className="color-Theme pointer"> Close account </Link>
+                                        </td>                                                 
                                         </tr>                                                                                           
                                     </tbody>
                                     </table>

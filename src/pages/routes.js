@@ -21,7 +21,6 @@ import RechargeCard from './Money/Recharge/rechargeCard';
 class Routes extends React.Component {
 
 	render(){
-		console.log("checking props: ", this.props);
 		return (
 			<React.Fragment>
 				<Route  

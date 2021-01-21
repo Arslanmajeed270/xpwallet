@@ -17,16 +17,16 @@ class sidebar extends Component {
                         <Link to="/dashboard">Home</Link>
                         </li>
                         <li>
-                        <Link to="/add-money-1">Recharge</Link>
-                        </li>            
-                        <li>
                         <Link to="/transfer">Transfer</Link>
                         </li>
+                        <li>
+                        <Link to="/add-money-2">Load Wallet</Link>
+                        </li>            
                         <li>
                         <Link to="/withdraw">Withdraw</Link>
                         </li>            
                         <li>
-                        <Link to="/exchange">Exchange</Link>
+                        <Link to="/exchange">Currency</Link>
                         </li>             
                         <li>
                         <Link to="/recent-transaction">Recent Transaction</Link>

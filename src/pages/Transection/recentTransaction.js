@@ -24,13 +24,13 @@ class recentTransaction extends Component {
                             <ul className="nav nav-tabs" id="trasactionTabs" role="tablist">
                             <div id="reportrange" style={{background: '#fff', cursor: 'pointer', padding: '5px 10px', border: '1px solid #ccc', width: '100%'}}><span /></div>
                             <li className="nav-item">
-                                <a className="nav-link active" id="activity-tab" data-toggle="tab" href="#activity" role="tab" aria-controls="activity" aria-selected="true">Activity</a>
+                                <Link className="nav-link active" id="activity-tab" data-toggle="tab" to="#activity" role="tab" aria-controls="activity" aria-selected="true">Activity</Link>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" id="recieved-tab" data-toggle="tab" href="#recieved" role="tab" aria-controls="recieved" aria-selected="false">Payment Recieved</a>
+                                <Link className="nav-link" id="recieved-tab" data-toggle="tab" to="#recieved" role="tab" aria-controls="recieved" aria-selected="false">Payment Recieved</Link>
                             </li>                        
                             <li className="nav-item">
-                                <a className="nav-link" id="sent-tab" data-toggle="tab" href="#sent" role="tab" aria-controls="sent" aria-selected="false">Payment Sent</a>
+                                <Link className="nav-link" id="sent-tab" data-toggle="tab" to="#sent" role="tab" aria-controls="sent" aria-selected="false">Payment Sent</Link>
                             </li>
                             </ul>
                             <div className="tab-content" id="myTabContent">

@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import { Route , withRouter } from 'react-router-dom';
+import { Route, withRouter } from 'react-router-dom';
 import Index from "./pages/index";
 import AuthIndex from './pages/Auth'
+import PrivateRoute  from "./components/common/PrivateRoute";
+// import PublicRoute  from "./components/common/PublicRoute";
 
 import { connect } from 'react-redux';
 
@@ -10,7 +12,7 @@ class App extends Component {
     constructor(props) {
 		super(props);
 		this.state = {
-            authRoutes: ['/register', '/login', 'otp'],
+            authRoutes: ['/register', '/login', '/register-otp'],
             routes: [
                 '/', 
                 '/dashboard', 
@@ -30,15 +32,13 @@ class App extends Component {
                 ]
 		};
     }
-
-    componentDidMount() {
-		if (localStorage.jwtToken) {
-			this.props.setCurrentUser(JSON.parse(localStorage.jwtToken));
-        }
-    }
+    
     render() {
         const {authRoutes, routes } = this.state;
-       
+        const { setCurrentUser } = this.props;
+        if (localStorage.jwtToken) {
+          setCurrentUser(JSON.parse(localStorage.jwtToken));
+        }
     return (
       <React.Fragment>
         {
@@ -54,7 +54,7 @@ class App extends Component {
 
         {
             routes.map( (route, index) => (
-                <Route 
+                <PrivateRoute
                 exact
                 key={index}
                 path={route}
